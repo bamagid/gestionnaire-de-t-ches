@@ -13,7 +13,7 @@
                 <h2 class="h21">Créer un compte</h2><br>
                 <label for="pseudo1" class="lab_pre">Nom d'utilisateur:</label><br>
                 <input type="text" name="pseudo1" class="entrer" autocomplete="off" pattern="[a-zA-Zàéùè -]{2,50}" required><br>
-                <label for="email1">Mot de passe:</label><br>
+                <label for="email1">Email:</label><br>
                 <input type="email" name="email1" class="entrer" autocomplete="off" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}" required><br>
                 <label for="password1">Mot de passe:</label><br>
                 <input type="password" name="password1" class="entrer" required><br>
