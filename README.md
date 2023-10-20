@@ -1,1 +1,3 @@
-# gestionnaire-de-t-ches
+# gestionnaire-de-taches
+Vous avez récemment rejoint une entreprise qui fait face à des défis importants en matière de gestion des tâches. Les employés de l'entreprise sont submergés par la quantité de travail à accomplir, et les processus de gestion des tâches sont archaïques, ce qui entraîne des retards et une confusion générale.
+Votre mission, en tant que développeur web de l’entreprise, est de créer une application de gestion de tâches qui aidera les employés de l'entreprise à gérer leurs tâches de manière plus optimale. L'objectif est d'améliorer l'efficacité, la transparence et la collaboration au sein de l'entreprise en fournissant un outil moderne et convivial pour la gestion des tâches.
