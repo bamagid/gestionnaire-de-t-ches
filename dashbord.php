@@ -1,10 +1,16 @@
 <?php
 session_start();
 require_once("config.php");
+if (isset($_POST['deconnexion'])) {
+    unset($_SESSION['utilisateur']);
+    header("Location:index.php");
+       ;}
+
+if (isset($_SESSION['utilisateur'])) {
 $_SESSION['utilisateur'];
 $tache=$bdd->prepare("SELECT * FROM taches WHERE id_user= :user");
 $tache->execute(array('user'=>$_SESSION['utilisateur']['id_user']));
-$taches=$tache->fetchAll();
+$taches=$tache->fetchAll(PDO::FETCH_ASSOC);
 $_SESSION['Taches']=$taches;
 if ($_SERVER['REQUEST_METHOD']=='POST') {
     $titre=$_POST['titre'];
@@ -25,7 +31,11 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
         )
         );
         $_SESSION['Taches']=$taches;
+    header("location:dashbord.php");
     }
+}}else {
+ header("location:index.php");
+
 }
 ?>
 <!DOCTYPE html>
@@ -44,17 +54,24 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
         <h1>Gestion de mes Tâches</h1><br>
         <p><?= $_SESSION['utilisateur']['nom'];?></p>
     </div>
+    <form action="dashbord.php" class="form" method="post">
+        <button type="submit" class="button" name="deconnexion" >Se deconnecter</button>
+        </form>
     <div class="corps">
         <div class="scroll">
             <?php
-                foreach ($taches as $task) {
+                foreach ( $taches as $task) {
+                    $id_task=$task['id'];
             echo '<div class="taches">
                 <h2> '.$task['titre'].' </h2><br>
                 <p>'.$task['description'].' </p>
                 <div class="manage_task">
                     <p class="p1"><b>Priorité :'.$task['priorite'].' </b></p>
                     <p class="p2"><b>Statut : '.$task['statut'].' </b></p>
-                    <button><a href="details_task.php"> Voir les details </a></button>
+                    <p class="p3"><b>Echéance : '.$task['echeance'].' </b></p>
+                    <form action="details_task.php" method="POST">
+                    <button type="submit" name="details"value="'.$id_task.'">Voir les details</button>
+                    </form>
                 </div>
             </div>';
         }
@@ -86,5 +103,4 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
         </div>
     </div>
 </body>
-
 </html>
