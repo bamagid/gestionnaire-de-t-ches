@@ -42,13 +42,13 @@ body{
     flex-direction: row;
     margin-top: -20px;
     justify-content: space-between;
-    margin-right: 400px;
+    margin-right: 500px;
 }
 .taches h2{
     margin-bottom: -30px;
 }
 .taches .manage_task button{
-    width: 40%;
+    width: 150px;
     border-radius: 4px;
     border: #fff 1px solid;
     color: #fff;
@@ -66,6 +66,9 @@ body{
 }
 .p2{
     color:  rgb(76,175,80);
+}
+.p3{
+    color: rgb(255, 0, 0);
 }
 .add_task{
     width: auto;
@@ -101,4 +104,15 @@ textarea{
     width: 1100px;
     border: #f0f2f5 1px solid;
     outline: none;
+}
+
+.form .button{
+    border-radius: 4px;
+    border: #fff 1px solid;
+    color: #fff;
+    background-color: rgb(38, 33, 168);
+    padding: 8px;
+    font-size: 15px;
+    margin-bottom: 2px
+
 }
