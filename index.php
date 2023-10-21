@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once("config.php");
 if ($_SERVER['REQUEST_METHOD']=="POST") {
     if (isset($_POST['signup']) && !empty($_POST['pseudo1']) && !empty($_POST['email1']) && !empty($_POST['password1']) && !empty($_POST['password2'])) {
     $pseudo1 = htmlspecialchars($_POST['pseudo1']);
@@ -40,8 +40,11 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
     $email =htmlspecialchars($_POST['email']);
     $pass =md5(htmlspecialchars($_POST['password']));
     //Faire une requete preparée et l'executer
-    $query = $bdd->prepare("SELECT * FROM utilisateurs WHERE email = :email");
-    $query->execute(array('email' => $email));
+    $query = $bdd->prepare("SELECT * FROM utilisateurs WHERE email = :email AND mot_de_passe = :mdp ");
+    $query->execute(array(
+        'email' => $email,
+        'mdp'=>$pass
+));
     //Verifier si la requete a renvoyer une ligne pour confirmer que l'utilisateur existe dans la BDD
     if ($query->rowCount() == 1) {
         $user = $query->fetch();
