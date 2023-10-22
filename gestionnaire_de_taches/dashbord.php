@@ -1,5 +1,5 @@
 <?php
-require_once("dashbord_action.php");
+require_once("traitements/dashbord_action.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,7 @@ require_once("dashbord_action.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashbord</title>
-    <link rel="stylesheet" href="dashbord.css">
+    <link rel="stylesheet" href="styles/dashbord.css">
 </head>
 
 <body>
