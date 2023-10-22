@@ -1,5 +1,5 @@
 <?php
-require_once("manage_task.php");
+require_once("traitements/manage_task.php");
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ require_once("manage_task.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Details de tâches</title>
-    <link rel="stylesheet" href="details_task.css">
+    <link rel="stylesheet" href="styles/details_task.css">
 </head>
 
 <body>

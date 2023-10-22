@@ -1,5 +1,5 @@
 <?php 
-require_once("reset_action.php");
+require_once("traitements/reset_action.php");
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@ require_once("reset_action.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset password</title>
-    <link rel="stylesheet" href="pswd_reset.css">
+    <link rel="stylesheet" href="styles/pswd_reset.css">
 </head>
 <body>
     <form action="pswd_reset.php" method="post">
