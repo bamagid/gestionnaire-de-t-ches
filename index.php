@@ -2,6 +2,7 @@
 session_start();
 require_once("actions/signup_action.php");
 require_once("actions/signin_action.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +41,9 @@ require_once("actions/signin_action.php");
             <input type="password" name="password" autocomplete="off" class="entrer" required><br>
             <div class="foot">
                 <button type="submit" name="connect">Se connecter</button>
+
                 <a href="pswd_reset.php">Mot de passe oublié?</a>
+
             </div>
         </form>
     </div>
