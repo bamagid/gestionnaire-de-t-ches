@@ -1,42 +1,5 @@
 <?php
-session_start();
-require_once("config.php");
-if (isset($_POST['deconnexion'])) {
-    unset($_SESSION['utilisateur']);
-    header("Location:index.php");
-       ;}
-
-if (isset($_SESSION['utilisateur'])) {
-$_SESSION['utilisateur'];
-$tache=$bdd->prepare("SELECT * FROM taches WHERE id_user= :user");
-$tache->execute(array('user'=>$_SESSION['utilisateur']['id_user']));
-$taches=$tache->fetchAll(PDO::FETCH_ASSOC);
-$_SESSION['Taches']=$taches;
-if ($_SERVER['REQUEST_METHOD']=='POST') {
-    $titre=$_POST['titre'];
-    $echeance=$_POST['date'];
-    $priorite=$_POST['priorite'];
-    $statut=$_POST['statut'];
-    $description=$_POST['description'];
-    $id_user=$_SESSION['utilisateur']['id_user'];
-    if (isset($_POST["ajout_task"]) && !empty($_POST['titre']) && !empty($_POST['date']) && !empty($_POST['priorite']) && !empty($_POST['statut']) && !empty($_POST['description'])) {
-        $ajout=$bdd->prepare("INSERT INTO taches (titre,echeance,priorite,statut,description,id_user) VALUES (:titre,:echeance,:priorite,:statut,:description,:id_user)");
-        $ajout->execute(array(
-            'titre'=>$titre,
-            'echeance'=>$echeance,
-            'priorite'=>$priorite,
-            'statut'=>$statut,
-            'description'=>$description,
-            'id_user'=>$id_user
-        )
-        );
-        $_SESSION['Taches']=$taches;
-    header("location:dashbord.php");
-    }
-}}else {
- header("location:index.php");
-
-}
+require_once("actions/dashbord_action.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashbord</title>
-    <link rel="stylesheet" href="dashbord.css">
+    <link rel="stylesheet" href="styles/dashbord.css">
 </head>
 
 <body>
@@ -78,6 +41,13 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
             ?>
         </div>
         <div class="add_task">
+        <?php
+         if (!empty($errors)) {
+            foreach ($errors as $error) {
+               echo '<ul style="color: red;"><li> '. $error.' </li></ul>';
+           }
+       } 
+        ?>
             <form action="dashbord.php" method="POST">
                 <h2>Ajouter une nouvelle tâche</h2>
                 <label for="titre">Titre:</label><br>
