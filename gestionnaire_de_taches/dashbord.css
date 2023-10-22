@@ -1,0 +1,118 @@
+body{
+    background-color: #f0f2f5;
+    font-family: Verdana,Tahoma, sans-serif;
+    font-size: large;
+    color: black;
+}
+.corps{
+    margin: 10px auto;
+    width: 80%;
+}
+.header{text-align: center;
+    padding: 0;
+    color: #fff;
+    background-color: rgb(76,175,80);
+    margin: 0;
+}
+.header p{
+    margin-top:-30px ;
+}
+.taches{
+    display: flex;
+    width: 1200px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 2px;
+    justify-content: space-around;
+    justify-items: space-around;
+    flex-direction: column;
+    padding-left:20px ;
+    margin-bottom: 20px;
+    box-shadow:  2px 7px 3px rgba(0, 0, 0, 0.103)
+}
+.scroll{
+  height: 220px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.taches .manage_task{
+    display: flex;
+    align-items:center;
+    justify-content:flex-start;
+    flex-direction: row;
+    margin-top: -20px;
+    justify-content: space-between;
+    margin-right: 500px;
+}
+.taches h2{
+    margin-bottom: -30px;
+}
+.taches .manage_task button{
+    width: 150px;
+    border-radius: 4px;
+    border: #fff 1px solid;
+    color: #fff;
+    background-color: rgb(76,175,80);
+    padding: 8px;
+    font-size: 15px;
+    margin-bottom: 2px;
+}
+.taches .manage_task a{
+    text-decoration: none;
+    color:#fff;
+}
+.p1{
+    color: orangered;
+}
+.p2{
+    color:  rgb(76,175,80);
+}
+.p3{
+    color: rgb(255, 0, 0);
+}
+.add_task{
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+select{
+    width: 1104px;
+    border: #f0f2f5 1px solid;
+    padding: 8px 0;
+}
+input{
+    width: 1100px;
+    border: #f0f2f5 1px solid;
+    outline: none;
+    padding: 8px 0;
+}
+form button{
+    border-radius: 4px;
+    border: #fff 1px solid;
+    color: #fff;
+    background-color: rgb(76,175,80);
+    padding: 8px;
+    font-size: 15px;
+    margin-bottom: 2px
+
+}
+textarea{
+    resize: vertical;
+    width: 1100px;
+    border: #f0f2f5 1px solid;
+    outline: none;
+}
+
+.form .button{
+    border-radius: 4px;
+    border: #fff 1px solid;
+    color: #fff;
+    background-color: rgb(38, 33, 168);
+    padding: 8px;
+    font-size: 15px;
+    margin-bottom: 2px
+
+}
