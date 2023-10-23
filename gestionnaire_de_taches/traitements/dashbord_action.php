@@ -21,10 +21,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
     $description=htmlspecialchars($_POST['description']);
     $id_user=$_SESSION['utilisateur']['id_user'];
     $current_time=date("Y-m-d H:i:s");
-    $echeances=strtotime($echeance);
-    $date = new DateTime();
-    $date->setTimestamp($echeances);
-    $date_formatte = $date->format("Y-m-d H:i:s");
+    $echeances=date("Y-m-d H:i:s",strtotime($echeance));
     $errors=[];
     if (!is_string($titre) || strlen($titre)>100){
         $errors[]="Le titre est invalide (la longueur max du tire est de 100 caracteres)";
@@ -37,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
     if(!in_array($statut, ['En attente','En cours','Terminer']) ){
         $errors[]="Statut non reconnu, choix entre En attente,'En cours' ou 'Terminer'";
         }
-        if ($date_formatte < $current_time) {
+        if ($echeances < $current_time) {
             $errors[] = "L'échéance ne doit pas etre dans le passé ! mettez une date valide pour l'echeance";
         }
         if (count($errors)===0){
@@ -45,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
         $ajout=$bdd->prepare("INSERT INTO taches (titre,echeance,priorite,statut,description,id_user) VALUES (:titre,:echeance,:priorite,:statut,:description,:id_user)");
         $ajout->execute(array(
             'titre'=>$titre,
-            'echeance'=>$date_formatte,
+            'echeance'=>$echeances,
             'priorite'=>$priorite,
             'statut'=>$statut,
             'description'=>$description,
